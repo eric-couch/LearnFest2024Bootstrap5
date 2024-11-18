@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+
+            form.addEventListener('submit', function(e) {
+                if (!form.checkValidity()) { //  this is built into the browser. It checks if the form is valid
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="" novalidate>
+            <div class="form-floating">
+                <input type="email" name="email" id="email" 
+                placeholder="enter email" class="form-control" required />
+                <label for="email" class="form-label">Email</label>
+                <div class="invalid-feedback">Invalid Email</div>
+                <div class="valid-feedback">Valid Email</div>
+            </div>
+            <label for="color" class="form-label">Color</label>
+            <input type="color" name="color" id="color" class="form-control form-control-color">
+            <label for="range">Range:</label>
+            <input type="range" name="range" id="range" class="form-range">
+            <label for="select">select</label>
+            <select name="select" id="" class="form-select form-select-sm">
+                <option value="">option 1</option>
+                <option value="">option 2</option>
+                <option value="">option 3</option>
+                <option value="">option 4</option>
+                <option value="">option 5</option>
+            </select>
+            <div class="form-check form-switch">
+                <input type="checkbox" name="" id="approve" class="form-check-input">
+                <label for="approve" class="form-check-label">approve</label>
+            </div>
+            <button>Submit</button>
+        </form>
+    </div>    
+</body>
+</html>
